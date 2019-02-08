@@ -28,10 +28,29 @@ public class Controller {
 
     @FXML
     void initialize() {
+
+        //close button
         closeButton.setOnAction(event -> {
             System.out.println("closeButton pressed");
             closeButtonAction();
         });
+
+        //fullscreen
+        fullscreenButton.setOnAction(event -> {
+            System.out.println("Fullscreen button pressed");
+            fullscreenButtonAction();
+        });
+    }
+
+    private void fullscreenButtonAction() {
+        // get a handle to the stage
+        Stage stage = (Stage) fullscreenButton.getScene().getWindow();
+        // check fullscreen state and enter or exit it.
+        if (stage.isFullScreen()) {
+            stage.setFullScreen(false);
+        } else {
+            stage.setFullScreen(true);
+        }
     }
 
     @FXML
